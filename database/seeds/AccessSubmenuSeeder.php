@@ -68,26 +68,5 @@ class AccessSubmenuSeeder extends Seeder
             'edit' => 1,
             'delete' => 1,
         ]);
-        AccessSubmenu::create([
-            'role_id' => 1,
-            'submenu_id' => 9,
-            'create' => 1,
-            'edit' => 1,
-            'delete' => 1,
-        ]);
-        AccessSubmenu::create([
-            'role_id' => 1,
-            'submenu_id' => 10,
-            'create' => 1,
-            'edit' => 1,
-            'delete' => 1,
-        ]);
-        AccessSubmenu::create([
-            'role_id' => 1,
-            'submenu_id' => 11,
-            'create' => 1,
-            'edit' => 1,
-            'delete' => 1,
-        ]);
     }
 }

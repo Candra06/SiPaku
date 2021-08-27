@@ -15,7 +15,7 @@ class CreateDataAnggotaKk extends Migration
     {
         Schema::create('data_anggota_kk', function (Blueprint $table) {
             $table->increments('id');
-            $table->bigInteger('no_kk', 20)->unsigned();
+            $table->string('no_kk', 20);
             $table->string('nik', 20)->unique();
             $table->string('nama_lengkap' );
             $table->enum('status_hubungan', ['KEPALA KELUARGA', 'ISTRI', 'ANAK', 'CUCU', 'ORANG TUA']);
@@ -24,11 +24,12 @@ class CreateDataAnggotaKk extends Migration
             $table->string('tgl_lahir');
             $table->string('gol_dar');
             $table->enum('agama', ['ISLAM', 'HINDU', 'BUDHA', 'KRISTEN', 'KATOLIK', 'PROTESTAN', 'KONGHUCU']);
-            $table->enum('pend_akhir', ['SLTP/Sederajat', 'Tamat SD/Sederajat', 'Tidak/Belum Sekolah', 'Diploma IV/Strata I', 'Belum Tamat SD/Sederajat', 'SLTP/Sederajat', 'KONGHUCU']);
+            $table->enum('pend_akhir', ['Tamat SD/Sederajat', 'Tidak/Belum Sekolah', 'Diploma IV/Strata I', 'Belum Tamat SD/Sederajat', 'SLTP/Sederajat', 'KONGHUCU']);
             $table->enum('status_kawin', ['Belum Kawin', 'Kawin', 'Cerai Mati', 'Cerai Hidup']);
             $table->string('no_paspor');
             $table->date('tgl_akhir_paspor');
             $table->enum('status', ['Hidup', 'Mati']);
+            $table->foreign('no_kk')->references('no_kk')->on('data_kk');
             $table->timestamps();
         });
     }

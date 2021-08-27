@@ -18,15 +18,15 @@ class AccessMenuSeeder extends Seeder
         ]);
         AccessMenu::create([
             'role_id' => 1,
+            'menu_id' => 2,
+        ]);
+        AccessMenu::create([
+            'role_id' => 1,
             'menu_id' => 3,
         ]);
         AccessMenu::create([
             'role_id' => 1,
             'menu_id' => 4,
-        ]);
-        AccessMenu::create([
-            'role_id' => 1,
-            'menu_id' => 5,
         ]);
     }
 }

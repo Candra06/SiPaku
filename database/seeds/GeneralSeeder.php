@@ -13,7 +13,7 @@ class GeneralSeeder extends Seeder
     public function run()
     {
         General::create([
-            'logo' => '',
+            'logo' => '-',
             'title' => 'Sistem Informasi Pakuwesi',
             'tagline' => 'Site Tagline',
         ]);

@@ -17,7 +17,7 @@ class CreateGeneralsTable extends Migration
             $table->id();
             $table->string('logo', 40)->nullable();
             $table->string('favicon', 40)->nullable();
-            $table->string('title', 20)->nullable();
+            $table->string('title', 40)->nullable();
             $table->string('tagline', 50)->nullable();
             $table->string('primary_color', 7)->nullable();
             $table->string('secondary_color', 7)->nullable();
