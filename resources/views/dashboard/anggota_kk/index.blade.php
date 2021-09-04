@@ -23,21 +23,21 @@
                   <thead>
                     <tr>
                       <th>#</th>
-                      <th>Menu</th>
-                      <th>Icon</th>
-                      <th>Url</th>
-                      <th>Status</th>
+                      <th>No KK</th>
+                      <th>NIK</th>
+                      <th>Nama Lengkap</th>
+                      <th>Status Hubungan</th>
                       <th>Option</th>
                     </tr>
                   </thead>
                   <tbody>
-                      @foreach ($menu as $m)
+                      @foreach ($data as $m)
                           <tr>
                               <td>{{$loop->iteration}}</td>
-                              <td>{{$m->menu}}</td>
-                              <td class="text-primary text-center"><i class="fas fa-{{$m->icon}}"></i></td>
-                              <td>{{$m->url}}</td>
-                              <td>{!!$m->is_active == 1 ? '<span class="badge badge-success">Active</span>' : '<span class="badge badge-danger">Non Active</span>'!!}</td>
+                              <td>{{$m->no_kk}}</td>
+                              <td>{{$m->nik}}</td>
+                              <td>{{$m->nama_lengkap}}</td>
+                              <td>{{$m->status_hubungan}}</td>
                               <td class="d-flex justify-content-center">
                                 @if (Helper::permission()->edit == 1)
                                   <a href="{{Helper::permission()->url . '/' . $m->id . '/edit'}}" class="btn btn-sm btn-primary btn-circle mr-2">

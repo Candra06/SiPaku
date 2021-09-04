@@ -28,6 +28,14 @@
                                 </div>
                             @enderror
                         </div>
+                        <div class="col-lg-12 mb-3">
+                            <input type="text" name="telepon" value="{{old('telepon')}}" class="form-control @error('telepon') is-invalid @enderror" placeholder="telepon">
+                            @error('telepon')
+                                <div class="invalid-feedback">
+                                    {{$message}}
+                                </div>
+                            @enderror
+                        </div>
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <select class="form-control @error('role_id') is-invalid @enderror" name="role_id">

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +17,9 @@ use Illuminate\Support\Facades\Route;
 
 
 Auth::routes();
-
+Route::get('/', function () {
+    return redirect('/login');
+});
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/access/block', 'BlockController@index');
 
@@ -32,6 +35,16 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth']], function () {
     Route::resource('/managements/submenu', 'Dashboard\SubmenuController');
     Route::resource('/managements/role', 'Dashboard\RolemenuController');
     Route::resource('/users/index', 'Dashboard\UserController');
-    Route::resource('/posts/post', 'Dashboard\PostController');
-    Route::resource('/posts/category', 'Dashboard\CategoryController');
+    Route::resource('/datakk/data', 'Dashboard\DataKKController');
+    Route::resource('/datakk/anggota', 'Dashboard\AnggotaKeluargaController');
+    Route::resource('/master/agama', 'Dashboard\AgamaController');
+    Route::resource('/master/jenis_usaha', 'Dashboard\UsahaController');
+    Route::resource('/master/penghasilan', 'Dashboard\PenghasilanController');
+    Route::resource('/master/pekerjaan', 'Dashboard\PekerjaanController');
+    Route::resource('/master/pendidikan', 'Dashboard\PendidikanController');
+    Route::resource('/master/golongan-darah', 'Dashboard\GolonganDarahController');
+    Route::resource('/master/ternak', 'Dashboard\TernakController');
+    Route::resource('/surat/form', 'Dashboard\TernakController');
+    Route::resource('/surat/surat', 'Dashboard\TernakController');
+    Route::resource('/surat/form-surat', 'Dashboard\TernakController');
 });

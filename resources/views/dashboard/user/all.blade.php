@@ -24,6 +24,7 @@
                     <tr>
                       <th>#</th>
                       <th>Name</th>
+                      <th>telepon</th>
                       <th>Email</th>
                       <th>Role</th>
                       <th>Option</th>
@@ -33,6 +34,7 @@
                       @foreach ($user as $m)
                           <tr>
                             <td>{{$loop->iteration}}</td>
+                            <td>{{$m->telepon}}</td>
                             <td>{{$m->name}}</td>
                             <td>{{$m->email}}</td>
                             <td>{{$m->role->role}}</td>

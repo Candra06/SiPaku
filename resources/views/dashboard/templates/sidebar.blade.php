@@ -21,13 +21,13 @@
 
   @if (count($submenu) == 1)
     <a class="nav-link menu {{$m->url == $main_menu ? 'active-menu' : ''}}" href="{{$submenu[0]->url}}">
-      <div class="nav-link-icon"><i class="fas {{$m->icon}}"></i></div>
+      <div class="nav-link-icon"><i class="fas fa-{{$m->icon}}"></i></div>
       {{$m->menu}}
     </a>
   @else
     <a class="nav-link menu {{$m->url != $main_menu ? 'collapsed' : ''}} {{$m->url == $main_menu ? 'active-menu' : ''}}" href="javascript:void(0);" data-toggle="collapse"
       data-target="#{{strtolower(str_replace(' ', '-', $m->menu))}}" aria-expanded="{{$m->url != $main_menu ? 'true' : 'false'}}" aria-controls="{{strtolower(str_replace(' ', '-', $m->menu))}}">
-      <div class="nav-link-icon"><i class="fas {{$m->icon}}"></i></div>
+      <div class="nav-link-icon"><i class="fas fa-{{$m->icon}}"></i></div>
       {{$m->menu}}
       <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
     </a>
