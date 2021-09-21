@@ -14,8 +14,14 @@ class CreatePengajuanSurat extends Migration
     public function up()
     {
         Schema::create('pengajuan_surat', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
+            $table->unsignedInteger('id_surat')->index();
+            $table->unsignedBigInteger('id_user')->index();
+            $table->text('keperluan');
+            $table->enum('status', ['Pending', 'Confirm', 'Done']);
             $table->timestamps();
+            $table->foreign('id_surat')->references('id')->on('surat');
+            $table->foreign('id_user')->references('id')->on('users');
         });
     }
 

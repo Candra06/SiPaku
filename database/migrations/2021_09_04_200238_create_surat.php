@@ -14,7 +14,9 @@ class CreateSurat extends Migration
     public function up()
     {
         Schema::create('surat', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
+            $table->string('surat');
+            $table->text('deskripsi');
             $table->timestamps();
         });
     }

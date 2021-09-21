@@ -16,6 +16,7 @@
 
     <script src="{{ asset('assets/js/all.min.js') }}"></script>
     <script src="{{ asset('assets/js/feather.min.js') }}"></script>
+    <script src="{{ asset('assets/select2/dist/css/select2.min.css') }}"></script>
 
     @stack('styles')
 </head>
@@ -119,6 +120,8 @@
     <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/js/scripts.js') }}"></script>
 
+    
+
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
     <script src="{{ asset('assets/demo/datatables-demo.js') }}"></script>
@@ -139,7 +142,7 @@
         }
     </script>
 
-   
+
 
     @stack('scripts')
 </body>

@@ -71,9 +71,10 @@ class AgamaController extends Controller
      * @param  \App\Agama  $agama
      * @return \Illuminate\Http\Response
      */
-    public function edit(Agama $agama)
+    public function edit( $id)
     {
-        //
+        $data = Agama::where('id', $id)->first();
+        return view('dashboard.agama.edit', compact('data'));
     }
 
     /**

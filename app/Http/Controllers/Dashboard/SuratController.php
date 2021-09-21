@@ -14,7 +14,8 @@ class SuratController extends Controller
      */
     public function index()
     {
-        //
+        $data = Surat::all();
+        return view('dashboard.surat.index', compact('data'));
     }
 
     /**
@@ -24,7 +25,7 @@ class SuratController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.surat.create');
     }
 
     /**
@@ -35,7 +36,13 @@ class SuratController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        Surat::create($request->validate([
+            'surat' => 'required',
+            'deskripsi' => 'required',
+        ]));
+        return redirect('/dashboard/surat/data')->with('status', 'Surat Created');
+        
     }
 
     /**

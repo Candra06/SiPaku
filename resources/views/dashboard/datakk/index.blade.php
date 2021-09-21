@@ -35,7 +35,7 @@
                       @foreach ($data as $m)
                           <tr>
                               <td>{{$loop->iteration}}</td>
-                              <td>{{$m->no_kk}}</td>
+                              <td><a href="{{url('dashboard/datakk/data/'.$m->id)}}">{{$m->no_kk}}</a></td>
                               <td>{{$m->alamat}}</td>
                               <td>{{$m->nama_lengkap}}</td>
                               <td>{{$m->rt}}/{{$m->rw}}</td>

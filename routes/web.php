@@ -20,8 +20,12 @@ Auth::routes();
 Route::get('/', function () {
     return redirect('/login');
 });
+// Route::get('/register', function () {
+//     return view('auth.register');
+// });
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/access/block', 'BlockController@index');
+Route::post('daftar', 'Dashboard\UserController@daftar');
 
 Route::group(['prefix' => 'dashboard', 'middleware' => ['auth']], function () {
     Route::get('/homes/index', 'Dashboard\HomeController@index');
@@ -44,7 +48,11 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth']], function () {
     Route::resource('/master/pendidikan', 'Dashboard\PendidikanController');
     Route::resource('/master/golongan-darah', 'Dashboard\GolonganDarahController');
     Route::resource('/master/ternak', 'Dashboard\TernakController');
-    Route::resource('/surat/form', 'Dashboard\TernakController');
-    Route::resource('/surat/surat', 'Dashboard\TernakController');
-    Route::resource('/surat/form-surat', 'Dashboard\TernakController');
+    Route::resource('/surat/form', 'Dashboard\FormsController');
+    Route::resource('/surat/data', 'Dashboard\SuratController');
+    Route::resource('/surat/format', 'Dashboard\FormSuratController');
+    Route::resource('/surat/form-surat', 'Dashboard\FormSuratController');
+    Route::resource('/pengajuan/warga', 'Dashboard\PengajuanWargaController');
+    Route::resource('/pengajuan/surat', 'Dashboard\PengajuanSuratController');
+    Route::resource('/nakes/data', 'Dashboard\NakesController');
 });

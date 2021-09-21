@@ -63,6 +63,21 @@ class UserController extends Controller
         return redirect('/dashboard/users/index')->with('status', 'User Created');
     }
 
+    public function daftar(Request $request)
+    {
+        $data = $request->validate([
+            'name' => 'required',
+            'telepon' => 'required',
+            'email' => 'required|string|email|unique:users',
+            'password' => 'required|string|min:8',
+        ]);
+        $data['role_id'] = 2;
+        $data['password'] = Hash::make($data['password']);
+        // return $data;
+        User::create($data);
+        return redirect('/login')->with('success', 'Register Berhasil');
+    }
+
     /**
      * Display the specified resource.
      *

@@ -14,7 +14,8 @@ class FormsController extends Controller
      */
     public function index()
     {
-        //
+        $data = Forms::all();
+        return view('dashboard.forms.index', compact('data'));
     }
 
     /**
@@ -24,7 +25,7 @@ class FormsController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.forms.create');
     }
 
     /**
@@ -35,7 +36,14 @@ class FormsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        Forms::create($request->validate([
+            'name' => 'required',
+            'label' => 'required',
+            'type' => 'required',
+        ]));
+        return redirect('/dashboard/surat/form')->with('status', 'Forms Created');
+        
     }
 
     /**
@@ -55,9 +63,10 @@ class FormsController extends Controller
      * @param  \App\Forms  $forms
      * @return \Illuminate\Http\Response
      */
-    public function edit(Forms $forms)
+    public function edit($id)
     {
-        //
+        $data = Forms::where('id', $id)->first();
+        return view('dashboard.forms.edit', compact('data'));
     }
 
     /**
@@ -67,9 +76,15 @@ class FormsController extends Controller
      * @param  \App\Forms  $forms
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Forms $forms)
+    public function update(Request $request, $id)
     {
-        //
+        
+        Forms::where('id', $id)->update($request->validate([
+            'name' => 'required',
+            'label' => 'required',
+            'type' => 'required',
+        ]));
+        return redirect('/dashboard/surat/form')->with('status', 'Forms Edited');
     }
 
     /**
@@ -78,8 +93,9 @@ class FormsController extends Controller
      * @param  \App\Forms  $forms
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Forms $forms)
+    public function destroy($id)
     {
-        //
+        Forms::where('id', $id)->destroy();
+        return redirect('/dashboard/surat/form')->with('status', 'Forms Deleted');
     }
 }

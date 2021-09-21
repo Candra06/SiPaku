@@ -119,7 +119,14 @@ class DataKKController extends Controller
      */
     public function show($id)
     {
-        $data = DataKK::where('id', $id)->first();
+        $data = DataKK::leftJoin('usaha', 'usaha.id', 'data_kk.jenis_usaha')->where('data_kk.id', $id)
+        ->select('data_kk.*', 'usaha.nama')
+        ->first();
+        $anggota = AnggotaKeluarga::leftJoin('pekerjaan', 'pekerjaan.id', 'data_anggota_kk.pekerjaan')->where('data_anggota_kk.no_kk', $data->no_kk)
+        ->select('pekerjaan.nama', 'data_anggota_kk.*')
+        ->get();
+        // return $anggota;
+        return view('dashboard.datakk.show_data', compact('data', 'anggota'));
         return $data;
     }
 

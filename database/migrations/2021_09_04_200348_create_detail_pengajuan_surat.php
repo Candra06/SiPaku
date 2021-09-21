@@ -14,8 +14,13 @@ class CreateDetailPengajuanSurat extends Migration
     public function up()
     {
         Schema::create('detail_pengajuan_surat', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
+            $table->unsignedInteger('id_pengajuan')->index();
+            $table->unsignedInteger('id_form_letter')->index();
+            $table->text('value_form');
             $table->timestamps();
+            $table->foreign('id_pengajuan')->references('id')->on('pengajuan_surat');
+            $table->foreign('id_form_letter')->references('id')->on('form_surat');
         });
     }
 

@@ -35,7 +35,7 @@
                           <tr>
                               <td>{{$loop->iteration}}</td>
                               <td>{{$m->no_kk}}</td>
-                              <td>{{$m->nik}}</td>
+                              <td><a href="{{url('dashboard/datakk/anggota/'.$m->id)}}">{{$m->nik}}</a></td>
                               <td>{{$m->nama_lengkap}}</td>
                               <td>{{$m->status_hubungan}}</td>
                               <td class="d-flex justify-content-center">
